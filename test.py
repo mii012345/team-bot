@@ -52,6 +52,5 @@ async def on_message(message):
     if message.content == '/members':
         await get_members(message)
 
-@
     
 client.run(TOKEN)
