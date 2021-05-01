@@ -1,3 +1,5 @@
 # team-bot
 
-## setting.jsonにTOKENの追加
+## ユーザの勝敗を記録できる
+
+## setting.jsonにTOKENを記述する
