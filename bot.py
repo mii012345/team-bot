@@ -36,17 +36,20 @@ async def ready(ctx):
 
 @bot.command()
 async def go(ctx, specified_num=2):
-    mes = await radb.get_ready_mes()
-    reactions = mes.reactions
-    ct = 0
-    for i in reactions:
-        if i.emoji == "👍":
-            ct = i.count
-            await ctx.channel.send(str(ct-1)+"人が参加中")
-            async for user in i.users():
-                if not user.bot:
-                    print(user)
+    await radb.get_battle_member(ctx)
+    if radb.red_and_white():
+        #await ctx.channel.send()
+        print(radb.red_team)
+        print(radb.white_team)
+    else:
+        await ctx.channel.send("エラーが発生しました。最初からやり直してください。")
         
+
+@bot.command()
+async def ref(ctx, arg):
+    """引数のユーザの勝敗を閲覧
+    """
+    print(arg)
     
 
 bot.run(token)
